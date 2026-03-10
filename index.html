@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Canteen Feedback</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🍽 Canteen Feedback  🍽</h1>
+
+<div class="role-selector">
+<button class="role-btn active" onclick="setRole('student',this)">Student</button>
+<button class="role-btn" onclick="setRole('teacher',this)">Teacher</button>
+</div>
+
+<form id="feedbackForm">
+
+<label>Name</label>
+<input type="text" id="name" required>
+
+<div id="rollGroup">
+<label>Roll Number</label>
+<input type="text" id="roll">
+</div>
+
+<h2>Food Ratings</h2>
+
+<div class="food-grid" id="foodGrid"></div>
+
+<h2>Canteen Experience</h2>
+
+<label>Cleanliness</label>
+<div class="star-rating">
+<input type="radio" name="clean" value="5" id="c5"><label for="c5"><i class="fa fa-star"></i></label>
+<input type="radio" name="clean" value="4" id="c4"><label for="c4"><i class="fa fa-star"></i></label>
+<input type="radio" name="clean" value="3" id="c3"><label for="c3"><i class="fa fa-star"></i></label>
+<input type="radio" name="clean" value="2" id="c2"><label for="c2"><i class="fa fa-star"></i></label>
+<input type="radio" name="clean" value="1" id="c1"><label for="c1"><i class="fa fa-star"></i></label>
+</div>
+
+<label>Interior</label>
+<div class="star-rating">
+<input type="radio" name="interior" value="5" id="i5"><label for="i5"><i class="fa fa-star"></i></label>
+<input type="radio" name="interior" value="4" id="i4"><label for="i4"><i class="fa fa-star"></i></label>
+<input type="radio" name="interior" value="3" id="i3"><label for="i3"><i class="fa fa-star"></i></label>
+<input type="radio" name="interior" value="2" id="i2"><label for="i2"><i class="fa fa-star"></i></label>
+<input type="radio" name="interior" value="1" id="i1"><label for="i1"><i class="fa fa-star"></i></label>
+</div>
+
+<label>Service Speed</label>
+<div class="star-rating">
+<input type="radio" name="speed" value="5" id="s5"><label for="s5"><i class="fa fa-star"></i></label>
+<input type="radio" name="speed" value="4" id="s4"><label for="s4"><i class="fa fa-star"></i></label>
+<input type="radio" name="speed" value="3" id="s3"><label for="s3"><i class="fa fa-star"></i></label>
+<input type="radio" name="speed" value="2" id="s2"><label for="s2"><i class="fa fa-star"></i></label>
+<input type="radio" name="speed" value="1" id="s1"><label for="s1"><i class="fa fa-star"></i></label>
+</div>
+
+<label>Price / Value</label>
+<div class="star-rating">
+<input type="radio" name="price" value="5" id="p5"><label for="p5"><i class="fa fa-star"></i></label>
+<input type="radio" name="price" value="4" id="p4"><label for="p4"><i class="fa fa-star"></i></label>
+<input type="radio" name="price" value="3" id="p3"><label for="p3"><i class="fa fa-star"></i></label>
+<input type="radio" name="price" value="2" id="p2"><label for="p2"><i class="fa fa-star"></i></label>
+<input type="radio" name="price" value="1" id="p1"><label for="p1"><i class="fa fa-star"></i></label>
+</div>
+
+<label>Comment</label>
+<textarea id="comment"></textarea>
+
+<button class="submit">Submit Feedback</button>
+
+</form>
+
+<div class="success" id="successMsg">Feedback Submitted Successfully</div>
+
+<button class="admin-btn" onclick="openAdmin()">Admin Dashboard</button>
+
+<div id="adminArea"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
