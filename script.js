@@ -146,7 +146,7 @@ function openAdmin(){
 
 let pass=prompt("Enter Admin Password")
 
-if(pass!=="00000"){
+if(pass!=="Atish00"){
 alert("Wrong password")
 return
 }
