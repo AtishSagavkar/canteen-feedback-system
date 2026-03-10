@@ -15,26 +15,6 @@ function setRole(r, btn) {
 
 }
 
-/* RATING SIMILARITY FUNCTION */
-
-function calculateRatingSimilarity(newRatings, oldRatings) {
-
-  let total = 0;
-  let max = 0;
-
-  for (let i = 0; i < newRatings.length; i++) {
-
-    let diff = Math.abs(newRatings[i] - oldRatings[i]);
-
-    total += 5 - diff;
-    max += 5;
-
-  }
-
-  return Math.round((total / max) * 100);
-
-}
-
 /* FOOD ITEMS */
 
 const foods = [
@@ -183,7 +163,7 @@ async function openAdmin() {
 
   let html = `
 
-<h2> Admin Dashboard</h2>
+<h2>Admin Dashboard</h2>
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:20px">
 
@@ -214,7 +194,7 @@ async function openAdmin() {
 `;
 
   data.forEach(f => {
-    html += <tr><td>${f.name}</td><td>${f.role}</td><td>${f.roll || "-"}</td><td>${f.comment || "-"}</td></tr>;
+    html += `<tr><td>${f.name}</td><td>${f.role}</td><td>${f.roll || "-"}</td><td>${f.comment || "-"}</td></tr>`;
   });
 
   html += "</table>";
