@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,8 +18,7 @@
 
 <div class="container">
 
-<h1>🍽 Give Us Feedback  🍽</h1>
-
+<h1>🍽 Give Us Feedback 🍽</h1>
 
 <div class="role-selector">
 <button class="role-btn active" onclick="setRole('student',this)">Student</button>
@@ -92,34 +92,33 @@
 
 </div>
 
+
+<!-- Firebase -->
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCABhZkcnKcb8esK5kLiEUjTNtlvKwLYFs",
-    authDomain: "canteen-feedback-system-4d2f6.firebaseapp.com",
-    projectId: "canteen-feedback-system-4d2f6",
-    storageBucket: "canteen-feedback-system-4d2f6.firebasestorage.app",
-    messagingSenderId: "87701148927",
-    appId: "1:87701148927:web:6ba3e9ee6739a00b69a8ca",
-    measurementId: "G-1JHPGXTRZP"
-  };
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  window.db = db;
-  
- 
+const firebaseConfig = {
+apiKey: "AIzaSyCABhZkcnKcb8esK5kLiEUjTNtlvKwLYFs",
+authDomain: "canteen-feedback-system-4d2f6.firebaseapp.com",
+projectId: "canteen-feedback-system-4d2f6",
+storageBucket: "canteen-feedback-system-4d2f6.firebasestorage.app",
+messagingSenderId: "87701148927",
+appId: "1:87701148927:web:6ba3e9ee6739a00b69a8ca",
+measurementId: "G-1JHPGXTRZP"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.db = db;
+
 </script>
 
-<script src="script.js"></script>
+
+<!-- Your JS -->
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
