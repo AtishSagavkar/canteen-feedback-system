@@ -20,6 +20,7 @@
 
 <h1>🍽 Give Us Feedback 🍽</h1>
 
+
 <div class="role-selector">
 <button class="role-btn active" onclick="setRole('student',this)">Student</button>
 <button class="role-btn" onclick="setRole('teacher',this)">Teacher</button>
@@ -92,7 +93,30 @@
 
 </div>
 
-<!-- Load main JS -->
+
+<!-- Firebase -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCABhZkcnKcb8esK5kLiEUjTNtlvKwLYFs",
+authDomain: "canteen-feedback-system-4d2f6.firebaseapp.com",
+projectId: "canteen-feedback-system-4d2f6",
+storageBucket: "canteen-feedback-system-4d2f6.firebasestorage.app",
+messagingSenderId: "87701148927",
+appId: "1:87701148927:web:6ba3e9ee6739a00b69a8ca",
+measurementId: "G-1JHPGXTRZP"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.db = db;
+
+</script>
+
 <script type="module" src="./script.js"></script>
 
 </body>

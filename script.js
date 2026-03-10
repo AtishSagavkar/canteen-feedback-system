@@ -76,7 +76,6 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
   for (let i = 0; i < foods.length; i++) {
 
     let rating = document.querySelector(`input[name="food${i}"]:checked`);
-
     foodRatings.push(rating ? rating.value : 0);
 
   }
@@ -99,9 +98,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
     });
 
     document.getElementById("successMsg").style.display = "block";
-
-    document.getElementById("successMsg").innerHTML =
-      "Feedback Submitted Successfully";
+    document.getElementById("successMsg").innerHTML = "Feedback Submitted Successfully";
 
     this.reset();
 
@@ -132,6 +129,13 @@ async function openAdmin() {
 
   let totalFeedback = data.length;
 
+  if (totalFeedback === 0) {
+
+    document.getElementById("adminArea").innerHTML = "<h3>No feedback submitted yet</h3>";
+    return;
+
+  }
+
   let cleanTotal = 0;
   let interiorTotal = 0;
   let foodTotal = 0;
@@ -157,9 +161,9 @@ async function openAdmin() {
 
   });
 
-  let avgClean = (cleanTotal / totalFeedback || 0).toFixed(1);
-  let avgInterior = (interiorTotal / totalFeedback || 0).toFixed(1);
-  let avgFood = (foodTotal / (foodCount || 1)).toFixed(1);
+  let avgClean = (cleanTotal / totalFeedback).toFixed(1);
+  let avgInterior = (interiorTotal / totalFeedback).toFixed(1);
+  let avgFood = (foodTotal / foodCount).toFixed(1);
 
   let html = `
 
@@ -194,7 +198,12 @@ async function openAdmin() {
 `;
 
   data.forEach(f => {
-    html += `<tr><td>${f.name}</td><td>${f.role}</td><td>${f.roll || "-"}</td><td>${f.comment || "-"}</td></tr>`;
+    html += `<tr>
+<td>${f.name}</td>
+<td>${f.role}</td>
+<td>${f.roll || "-"}</td>
+<td>${f.comment || "-"}</td>
+</tr>`;
   });
 
   html += "</table>";
@@ -202,3 +211,8 @@ async function openAdmin() {
   document.getElementById("adminArea").innerHTML = html;
 
 }
+
+/* MAKE FUNCTIONS AVAILABLE TO HTML */
+
+window.setRole = setRole;
+window.openAdmin = openAdmin;
