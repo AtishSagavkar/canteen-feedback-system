@@ -32,6 +32,34 @@ text-align:center;
 margin-bottom:20px;
 }
 
+/* TOP NAV */
+
+.top-nav{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:15px;
+  flex-wrap:wrap;
+}
+
+.nav-link{
+  color:white;
+  text-decoration:none;
+  background:rgba(255,255,255,0.2);
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:600;
+  border:1px solid #fff5;
+  transition:0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active{
+  background:white;
+  color:#764ba2;
+  border-color:#fff;
+}
+
 /* ROLE BUTTONS */
 
 .role-selector{
