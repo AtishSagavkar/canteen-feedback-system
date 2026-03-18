@@ -56,6 +56,10 @@ function saveFeedback(item) {
   localStorage.setItem("canteenFeedbackData", JSON.stringify(all));
 }
 
+function localSave(item) {
+  saveFeedback(item);
+}
+
 function getRating(name) {
   return Number(document.querySelector(`input[name="${name}"]:checked`)?.value || 0);
 }
@@ -130,6 +134,25 @@ async function openAdmin() {
   document.getElementById("adminArea").innerHTML = html;
 }
 
+function applyTheme() {
+  const isDark = localStorage.getItem("theme") !== "light";
+  const themeBtn = document.getElementById("themeToggle");
+  if (isDark) {
+    document.body.classList.add("dark-mode");
+    if (themeBtn) themeBtn.textContent = "Light Mode";
+  } else {
+    document.body.classList.remove("dark-mode");
+    if (themeBtn) themeBtn.textContent = "Dark Mode";
+  }
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
+function toggleTheme() {
+  const current = localStorage.getItem("theme") || "dark";
+  localStorage.setItem("theme", current === "dark" ? "light" : "dark");
+  applyTheme();
+}
+
 function init() {
   renderFoodGrid();
   const form = document.getElementById("feedbackForm");
@@ -176,6 +199,9 @@ function init() {
   if (adminBtn) {
     adminBtn.addEventListener("click", openAdmin);
   }
+  const themeToggleBtn = document.getElementById("themeToggle");
+  if (themeToggleBtn) themeToggleBtn.addEventListener("click", toggleTheme);
+  applyTheme();
   window.setRole = setRole;
   renderFoodGrid();
 }

@@ -10,14 +10,15 @@ function getDb() {
 let role = "student";
 
 function setRole(r, btn) {
+  role = r;
+  document.querySelectorAll(".role-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
 
-role = r;
-
-document.querySelectorAll(".role-btn").forEach(b => b.classList.remove("active"));
-btn.classList.add("active");
-
-document.getElementById("rollGroup").style.display = (r === "student") ? "block" : "none";
-
+  document.getElementById("rollGroup").style.display = (r === "student") ? "block" : "none";
+  const teacherGroup = document.getElementById("titleGroup");
+  if (teacherGroup) {
+    teacherGroup.style.display = (r === "teacher") ? "block" : "none";
+  }
 }
 
 /* FOOD ITEMS */
@@ -58,6 +59,7 @@ if (feedbackForm) {
 
 const name = document.getElementById("name").value;
 const roll = document.getElementById("roll").value;
+const title = document.getElementById("title") ? document.getElementById("title").value : "";
 const comment = document.getElementById("comment").value;
 
 const clean = document.querySelector('input[name="clean"]:checked')?.value || 0;
@@ -77,8 +79,12 @@ foodRatings.push(rating ? rating.value : 0);
 }
 
 if (role === "student" && !roll) {
-alert("Roll number required");
-return;
+  alert("Roll number required");
+  return;
+}
+if (role === "teacher" && !title) {
+  alert("Please select your title (Mr/Ms/Miss/Dr)");
+  return;
 }
 
 try {
@@ -87,6 +93,7 @@ const db = getDb();
 await addDoc(collection(db, "feedback"), {
   name,
   role,
+  title: title || "",
   roll,
   comment,
   ratings: newRatings,

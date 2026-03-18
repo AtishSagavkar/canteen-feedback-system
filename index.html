@@ -24,20 +24,31 @@
   <a href="menu.html" class="nav-link">Menu</a>
   <a href="dashboard.html" class="nav-link">Dashboard</a>
   <a href="contact.html" class="nav-link">Contact</a>
+  <button id="themeToggle" class="theme-btn">Dark Mode</button>
 </nav>
+<h2 style="color:#fff; text-align:center; margin: 10px 0 20px;">🌟 Sunrise Canteen</h2>
 
-<h1>🍽 Give Us Feedback 🍽</h1>
-
-
-<div class="role-selector">
-<button class="role-btn active" onclick="setRole('student',this)">Student</button>
-<button class="role-btn" onclick="setRole('teacher',this)">Teacher</button>
+<div class="role-selector" style="display:flex; gap:8px; justify-content:center; margin-bottom:15px;">
+  <button type="button" class="role-btn active" onclick="setRole('student', this)">Student</button>
+  <button type="button" class="role-btn" onclick="setRole('teacher', this)">Teacher</button>
 </div>
 
 <form id="feedbackForm">
 
 <label>Name</label>
 <input type="text" id="name" required>
+
+<div id="titleGroup" style="display:none;">
+  <label>Title</label>
+  <select id="title" style="padding:8px;border-radius:6px;border:1px solid #666;width:100%;">
+    <option value="">Select title</option>
+    <option value="Mr">Mr</option>
+    <option value="Mrs">Mrs</option>
+    <option value="Ms">Ms</option>
+    <option value="Miss">Miss</option>
+    <option value="Dr">Dr</option>
+  </select>
+</div>
 
 <div id="rollGroup">
 <label>Roll Number</label>
@@ -95,7 +106,9 @@
 
 <div class="success" id="successMsg">Feedback Submitted Successfully</div>
 
-<div style="margin-top:20px; text-align:center;"><a class="nav-link" href="dashboard.html">Open Dashboard Page</a></div>
+<div style="margin-top:20px; text-align:center; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+  <a class="nav-link" href="dashboard.html">Open Dashboard Page</a>
+</div>
 
 </div>
 

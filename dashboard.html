@@ -16,7 +16,9 @@
     <a href="menu.html" class="nav-link">Menu</a>
     <a href="dashboard.html" class="nav-link active">Dashboard</a>
     <a href="contact.html" class="nav-link">Contact</a>
+    <button id="themeToggle" class="theme-btn">Dark Mode</button>
   </nav>
+  <h2 style="color:#fff; text-align:center; margin: 10px 0 20px;">🌟 Sunrise Canteen</h2>
   <h1>Admin Dashboard</h1>
   <p style="text-align:center; color:white;">This page shows average ratings and all feedback entries.</p>
   <div id="loginSection" style="margin-top:20px; text-align:center;">
@@ -149,6 +151,23 @@ if (checkAuth()) {
 } else {
   showLoginUI();
 }
+
+function applyThemeFromStorage() {
+  const isDark = localStorage.getItem('theme') !== 'light';
+  document.body.classList.toggle('dark-mode', isDark);
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+}
+function toggleThemeFromStorage() {
+  const current = localStorage.getItem('theme') || 'dark';
+  localStorage.setItem('theme', current === 'dark' ? 'light' : 'dark');
+  applyThemeFromStorage();
+}
+document.addEventListener('DOMContentLoaded', () => {
+  applyThemeFromStorage();
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.addEventListener('click', toggleThemeFromStorage);
+});
 </script>
 </body>
 </html>
