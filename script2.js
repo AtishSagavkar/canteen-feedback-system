@@ -23,7 +23,9 @@ const foods = [
   { name: "Coffee", img: "img/hotcofee.jpg" },
   { name: "Idli", img: "img/Idly.jpg" },
   { name: "Dosa", img: "img/three_plain_dosaa.jpg" },
-  { name: "Pav Bhaji", img: "img/Pav Bhaji.webp" }
+  { name: "Pav Bhaji", img: "img/Pav Bhaji.webp" },
+  { name: "Burger", img: "img/burger.png" },
+  { name: "Pizza", img: "img/pizza.webp" }
 ];
 
 function renderFoodGrid() {
