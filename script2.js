@@ -1,4 +1,19 @@
-import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDKKKiJpenTXH9vXMDkU9-Ctop9iSif9DU",
+  authDomain: "canteen-feedback-new-9c0e6.firebaseapp.com",
+  projectId: "canteen-feedback-new-9c0e6",
+  storageBucket: "canteen-feedback-new-9c0e6.firebasestorage.app",
+  messagingSenderId: "835202234208",
+  appId: "1:835202234208:web:5136609a75236996705005"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+window.db = db;
+console.log("Firebase initialized", { projectId: firebaseConfig.projectId, dbReady: Boolean(window.db) });
 
 function getDb() {
   if (!window.db) return null;

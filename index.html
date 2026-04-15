@@ -113,29 +113,6 @@
 </div>
 
 
-<!-- Firebase -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDKKKiJpenTXH9vXMDkU9-Ctop9iSif9DU",
-  authDomain: "canteen-feedback-new-9c0e6.firebaseapp.com",
-  projectId: "canteen-feedback-new-9c0e6",
-  storageBucket: "canteen-feedback-new-9c0e6.firebasestorage.app",
-  messagingSenderId: "835202234208",
-  appId: "1:835202234208:web:5136609a75236996705005"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// 🔥 CONNECT DATABASE (VERY IMPORTANT)
-const db = getFirestore(app);
-
-// Make it global (your script2.js needs this)
-window.db = db;
-</script>
 <script type="module" src="./script2.js"></script>
 
 </body>
