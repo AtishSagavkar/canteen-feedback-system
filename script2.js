@@ -108,17 +108,18 @@ async function openAdmin() {
   let data = [];
   if (db) {
     try {
+      console.log("Loading admin data from Firebase", db);
       const snapshot = await getDocs(collection(db, "feedback"));
       data = snapshot.docs.map((d) => d.data());
     } catch (err) {
-      console.error(err);
+      console.error("Admin load failed", err);
       alert("Could not load admin data from Firebase. Showing local data.");
       data = loadFeedback();
     }
   } else {
+    console.warn("Firebase DB unavailable for admin read, using local data");
     data = loadFeedback();
   }
-
   if (!data.length) {
     document.getElementById("adminArea").innerHTML = "<h3>No feedback submitted yet</h3>";
     return;
@@ -195,17 +196,20 @@ function init() {
         foodRatings: getFoodRatings(),
         time: new Date().toISOString()
       };
+      console.log("Submitting feedback item", item);
       const db = getDb();
       if (db) {
         try {
+          console.log("Saving to Firebase collection feedback", db);
           await addDoc(collection(db, "feedback"), item);
           showSuccess("Feedback submitted to Firebase successfully");
         } catch (err) {
-          console.error(err);
+          console.error("Firebase save failed", err);
           localSave(item);
           showSuccess("Saved locally (Firebase failed)");
         }
       } else {
+        console.warn("Firebase DB unavailable, saving locally");
         localSave(item);
         showSuccess("Saved locally (Firebase unavailable)");
       }
